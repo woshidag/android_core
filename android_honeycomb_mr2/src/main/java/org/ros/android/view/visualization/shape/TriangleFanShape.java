@@ -16,9 +16,13 @@
 
 package org.ros.android.view.visualization.shape;
 
+import android.content.Context;
 import org.ros.android.view.visualization.Color;
 import org.ros.android.view.visualization.Vertices;
+<<<<<<< HEAD:android_honeycomb_mr2/src/main/java/org/ros/android/view/visualization/shape/TriangleFanShape.java
 import org.ros.rosjava_geometry.Transform;
+=======
+>>>>>>> cc37dfc... Made shape drawing not leak state.:android_15/src/org/ros/android/view/visualization/shape/TriangleFanShape.java
 
 import java.nio.FloatBuffer;
 
@@ -44,14 +48,18 @@ public class TriangleFanShape extends BaseShape {
    *          the {@link Color} of the {@link Shape}
    */
   public TriangleFanShape(float[] vertices, Color color) {
+    super();
     this.vertices = Vertices.toFloatBuffer(vertices);
     setColor(color);
-    setTransform(Transform.identity());
   }
 
   @Override
+<<<<<<< HEAD:android_honeycomb_mr2/src/main/java/org/ros/android/view/visualization/shape/TriangleFanShape.java
   public void draw(GL10 gl) {
     super.draw(gl);
+=======
+  public void innerDraw(Context context, GL10 gl) {
+>>>>>>> cc37dfc... Made shape drawing not leak state.:android_15/src/org/ros/android/view/visualization/shape/TriangleFanShape.java
     Vertices.drawTriangleFan(gl, vertices, getColor());
   }
 }

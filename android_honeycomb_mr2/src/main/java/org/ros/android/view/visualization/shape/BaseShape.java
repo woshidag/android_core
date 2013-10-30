@@ -2,6 +2,7 @@ package org.ros.android.view.visualization.shape;
 
 import com.google.common.base.Preconditions;
 
+import android.content.Context;
 import org.ros.android.view.visualization.Color;
 import org.ros.android.view.visualization.OpenGlTransform;
 import org.ros.rosjava_geometry.Transform;
@@ -19,11 +20,31 @@ abstract class BaseShape implements Shape {
   private Color color;
   private Transform transform;
 
+  public BaseShape() {
+    setTransform(Transform.identity());
+  }
+
   @Override
+<<<<<<< HEAD:android_honeycomb_mr2/src/main/java/org/ros/android/view/visualization/shape/BaseShape.java
   public void draw(GL10 gl) {
+=======
+  public void draw(Context context, GL10 gl) {
+    gl.glPushMatrix();
+>>>>>>> cc37dfc... Made shape drawing not leak state.:android_15/src/org/ros/android/view/visualization/shape/BaseShape.java
     OpenGlTransform.apply(gl, getTransform());
     scale(gl);
+    innerDraw(context, gl);
+    gl.glPopMatrix();
   }
+
+  /**
+   * To be implemented by children. Should draw the shape in a identity base
+   * frame.
+   * 
+   * @param context
+   * @param gl
+   */
+  abstract protected void innerDraw(Context context, GL10 gl);
 
   /**
    * Scales the coordinate system.
