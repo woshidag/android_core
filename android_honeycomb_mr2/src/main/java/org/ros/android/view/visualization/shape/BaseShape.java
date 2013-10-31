@@ -25,12 +25,8 @@ abstract class BaseShape implements Shape {
   }
 
   @Override
-<<<<<<< HEAD:android_honeycomb_mr2/src/main/java/org/ros/android/view/visualization/shape/BaseShape.java
-  public void draw(GL10 gl) {
-=======
   public void draw(Context context, GL10 gl) {
     gl.glPushMatrix();
->>>>>>> cc37dfc... Made shape drawing not leak state.:android_15/src/org/ros/android/view/visualization/shape/BaseShape.java
     OpenGlTransform.apply(gl, getTransform());
     scale(gl);
     innerDraw(context, gl);

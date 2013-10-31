@@ -19,10 +19,6 @@ package org.ros.android.view.visualization.shape;
 import android.content.Context;
 import org.ros.android.view.visualization.Color;
 import org.ros.android.view.visualization.Vertices;
-<<<<<<< HEAD:android_honeycomb_mr2/src/main/java/org/ros/android/view/visualization/shape/TriangleFanShape.java
-import org.ros.rosjava_geometry.Transform;
-=======
->>>>>>> cc37dfc... Made shape drawing not leak state.:android_15/src/org/ros/android/view/visualization/shape/TriangleFanShape.java
 
 import java.nio.FloatBuffer;
 
@@ -32,7 +28,7 @@ import javax.microedition.khronos.opengles.GL10;
  * A {@link Shape} defined by vertices using OpenGl's GL_TRIANGLE_FAN method.
  * <p>
  * Note that this class is intended to be wrapped. No transformations are
- * performed in the {@link #draw(GL10)} method.
+ * performed in the {@link #draw(Context, GL10)} method.
  * 
  * @author moesenle@google.com (Lorenz Moesenlechner)
  * @author damonkohler@google.com (Damon Kohler)
@@ -54,12 +50,7 @@ public class TriangleFanShape extends BaseShape {
   }
 
   @Override
-<<<<<<< HEAD:android_honeycomb_mr2/src/main/java/org/ros/android/view/visualization/shape/TriangleFanShape.java
-  public void draw(GL10 gl) {
-    super.draw(gl);
-=======
   public void innerDraw(Context context, GL10 gl) {
->>>>>>> cc37dfc... Made shape drawing not leak state.:android_15/src/org/ros/android/view/visualization/shape/TriangleFanShape.java
     Vertices.drawTriangleFan(gl, vertices, getColor());
   }
 }
