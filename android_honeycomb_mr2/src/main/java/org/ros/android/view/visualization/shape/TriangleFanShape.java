@@ -48,9 +48,4 @@ public class TriangleFanShape extends BaseShape {
     this.vertices = Vertices.toFloatBuffer(vertices);
     setColor(color);
   }
-
-  @Override
-  public void innerDraw(Context context, GL10 gl) {
-    Vertices.drawTriangleFan(gl, vertices, getColor());
-  }
 }
