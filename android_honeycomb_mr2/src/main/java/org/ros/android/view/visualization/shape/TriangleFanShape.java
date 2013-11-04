@@ -34,7 +34,7 @@ import javax.microedition.khronos.opengles.GL10;
  */
 public class TriangleFanShape extends BaseShape {
 
-  private FloatBuffer vertices;
+  private final FloatBuffer vertices;
 
   /**
    * @param vertices
@@ -51,9 +51,5 @@ public class TriangleFanShape extends BaseShape {
   @Override
   public void innerDraw(GL10 gl) {
     Vertices.drawTriangleFan(gl, vertices, getColor());
-  }
-
-  protected void setVertices(float[] vertices) {
-    this.vertices = Vertices.toFloatBuffer(vertices);
   }
 }
