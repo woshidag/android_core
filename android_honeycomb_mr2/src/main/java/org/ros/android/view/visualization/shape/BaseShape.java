@@ -29,8 +29,17 @@ abstract class BaseShape implements Shape {
     gl.glPushMatrix();
     OpenGlTransform.apply(gl, getTransform());
     scale(gl);
+    innerDraw(gl);
     gl.glPopMatrix();
   }
+
+  /**
+   * To be implemented by children. Should draw the shape in a identity base
+   * frame.
+   *
+   * @param gl
+   */
+  abstract protected void innerDraw(GL10 gl);
 
   /**
    * Scales the coordinate system.
