@@ -25,6 +25,7 @@ buildscript {
 apply plugin: "catkin"
 
 allprojects {
+    apply from: "https://github.com/talregev/rosjava_mvn_repo/raw/master/maven.gradle"
     group "org.ros.android_core"
     version = project.catkin.pkg.version
 }
