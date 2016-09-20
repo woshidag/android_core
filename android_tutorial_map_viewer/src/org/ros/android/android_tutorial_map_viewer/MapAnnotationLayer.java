@@ -258,4 +258,10 @@ public class MapAnnotationLayer extends DefaultLayer {
             }
         });
     }
+    public void addAnnotation(geometry_msgs.PoseStamped poseStamped) {
+        annotation = new Marker("marker 1");
+        Transform poseTransform = Transform.fromPoseMessage(poseStamped.getPose());
+        annotation.setTransform(camera.getCameraToRosTransform().multiply(poseTransform));
+        confirmAnnotation();
+    }
 }

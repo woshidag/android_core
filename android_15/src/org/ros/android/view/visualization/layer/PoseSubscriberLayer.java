@@ -31,12 +31,13 @@ import javax.microedition.khronos.opengles.GL10;
  * @author moesenle@google.com (Lorenz Moesenlechner)
  */
 public class PoseSubscriberLayer extends SubscriberLayer<geometry_msgs.PoseStamped> implements
-    TfLayer {
+        TfLayer {
 
   private final GraphName targetFrame;
 
   private Shape shape;
   private boolean ready;
+  private geometry_msgs.PoseStamped poseStamped;
 
   public PoseSubscriberLayer(String topic) {
     this(GraphName.of(topic));
@@ -69,6 +70,10 @@ public class PoseSubscriberLayer extends SubscriberLayer<geometry_msgs.PoseStamp
           shape.setTransform(frameTransform.getTransform().multiply(poseTransform));
           ready = true;
         }
+
+
+//        Log.e("myLog--", "poseStamped ===== " + pose.getPose().getPosition().getX());
+        poseStamped = pose;
       }
     });
   }
@@ -76,5 +81,13 @@ public class PoseSubscriberLayer extends SubscriberLayer<geometry_msgs.PoseStamp
   @Override
   public GraphName getFrame() {
     return targetFrame;
+
+  }
+
+
+  public geometry_msgs.PoseStamped getPoseStamped() {
+    return poseStamped;
   }
 }
+
+

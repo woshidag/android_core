@@ -36,6 +36,13 @@
             android:padding="7.5dip"
             android:scaleType="fitCenter"
             android:src="@drawable/make_a_map_save" />
+        <Button
+            android:id="@+id/add_annotation"
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:onClick="saveAnnotation"
+            android:padding="7.5dip"
+            android:scaleType="fitCenter" />
 
         <LinearLayout
             android:id="@+id/top_bar"
@@ -52,13 +59,18 @@
         android:layout_height="fill_parent"
         android:orientation="horizontal" >
 
-        <org.ros.android.view.RosImageView
-            android:id="@+id/image"
+        <!--<org.ros.android.view.RosImageView-->
+            <!--android:id="@+id/image"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="fill_parent"-->
+            <!--android:layout_weight=".25"-->
+            <!--android:src="@mipmap/icon" />-->
+
+        <org.ros.android.view.visualization.VisualizationView
+            android:id="@+id/map_view"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_weight=".25"
-            android:src="@mipmap/icon" />
-
+            android:layout_weight=".25" />
         <LinearLayout
             android:id="@+id/side_layout"
             android:layout_width="fill_parent"
@@ -67,11 +79,11 @@
             android:gravity="right"
             android:orientation="vertical" >
 
-            <org.ros.android.view.visualization.VisualizationView
-                android:id="@+id/map_view"
+            <ExpandableListView
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_weight=".25" />
+                android:layout_weight=".25"
+                android:id="@+id/annotations_view" />
 
             <org.ros.android.view.VirtualJoystickView
                 android:id="@+id/virtual_joystick"
